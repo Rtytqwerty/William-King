@@ -1,0 +1,93 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 37px;
+    &__logo {
+        font-family: 'Rubik';
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 33px;
+        color: #FFFFFF;
+        span {
+            color: $color-primary;
+        }
+    }
+    &__burger {
+        display: none;
+        @media (max-width:1200px) {
+            display: block;
+            position: absolute;
+            top: 40px;
+            right: 20px;
+        }
+    }
+    span#icon-close {
+        display: none;
+    }
+    &-nav {
+        .material-icons {
+            display: none;
+            @media (max-width:1200px) {
+                display: block;
+                position: absolute;
+                top: 40px;
+                right: 20px;
+            }
+        }
+        &__ul {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 24px;    
+            @media (max-width:1200px) {
+                position: fixed;
+                z-index: 9;
+                width: 100%;
+                left: 0;
+                top: 0;
+                height: 100%;
+                background: rgba(0,0,0,0.6);
+                transform: translateX(-150%);
+                transition: $transition;
+            }
+        }
+        &__a {
+            font-family: 'Rubik';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px; 
+            transition: $transition;  
+            &._active, &:hover {
+                color: $color-primary;
+            }
+        }
+        @media (max-width:1200px) {
+            position: fixed;
+            z-index: 9;
+            width: 100%;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            transform: translateX(-150%);
+            transition: $transition;
+            .header-nav__ul {
+                height: 100%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .header-nav__a {
+                font-size: 18px;
+            }
+            .material-icons {
+
+            }
+            
+        }
+        &._active {
+            transform: translateX(0);
+        }
+    }
+}
